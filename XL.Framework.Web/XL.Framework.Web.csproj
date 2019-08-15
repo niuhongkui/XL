@@ -102,7 +102,7 @@
     <Compile Include="AuthorizeIgnoreAttribute.cs" />
     <Compile Include="AutofacConfig.cs" />
     <Compile Include="BaseApiController.cs" />
-    <Compile Include="ControllerBase.cs" />
+    <Compile Include="BaseController.cs" />
     <Compile Include="ExplicitException.cs" />
     <Compile Include="HttpContextBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

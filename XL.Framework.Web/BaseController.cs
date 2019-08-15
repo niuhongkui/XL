@@ -12,7 +12,7 @@ using XL.Framework.Contract;
 
 namespace XL.Framework.Web
 {
-    public class ControllerBase : Controller
+    public class BaseController : Controller
     {
         /// <summary>
         /// 操作人，传IP....到后端记录
@@ -29,13 +29,13 @@ namespace XL.Framework.Web
         /// <summary>
         /// 分页大小
         /// </summary>
-        public virtual int PageSize
-        {
-            get
-            {
-                return 15;
-            }
-        }
+        //public virtual int PageSize
+        //{
+        //    get
+        //    {
+        //        return 15;
+        //    }
+        //}
 
 
         /// <summary>
@@ -72,7 +72,7 @@ namespace XL.Framework.Web
             base.OnActionExecuting(filterContext);
 
             //在方法执行前，附加上PageSize值
-            filterContext.ActionParameters.Values.Where(v => v is Request).ToList().ForEach(v => ((Request)v).PageSize = this.PageSize);
+            //filterContext.ActionParameters.Values.Where(v => v is Request).ToList().ForEach(v => ((Request)v).PageSize = this.PageSize);
         }
 
         /// <summary>

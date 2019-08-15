@@ -4,10 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Exam.BLL.Service.Basic;
+using XL.Framework.Web;
 
 namespace Exam.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private IUserInfoService _userInfoService;
 
