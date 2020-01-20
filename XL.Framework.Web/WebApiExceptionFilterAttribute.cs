@@ -12,7 +12,7 @@ using XL.Framework.Contract;
 namespace XL.Framework.Web
 {
     /// <summary>
-    /// 
+    /// 异常处理方法
     /// </summary>
     public class WebApiExceptionFilterAttribute : ExceptionFilterAttribute
     {

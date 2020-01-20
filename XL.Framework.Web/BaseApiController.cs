@@ -9,7 +9,6 @@ using XL.Framework.Contract;
 
 namespace XL.Framework.Web
 {
-    [RequestAuthorize]
     public class BaseApiController : ApiController
     {
         /// <summary>
@@ -27,10 +26,9 @@ namespace XL.Framework.Web
         {
             get
             {
-
                 var auth = Request.Headers.Authorization?.Parameter;
-                var user = (Operater)CacheHelper.GetCache(auth);
-                return user;
+                var user = CacheHelper.GetCache(auth);
+                return user != null ? (Operater)user : null;
             }
         }
 

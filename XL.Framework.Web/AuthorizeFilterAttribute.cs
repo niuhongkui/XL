@@ -4,7 +4,7 @@ using System.Web.Mvc;
 namespace XL.Framework.Web
 {
     /// <summary>
-    /// Attribute for power Authorize
+    /// MVC 身份验证Authorize
     /// </summary>
     public class AuthorizeFilterAttribute  : ActionFilterAttribute
     {

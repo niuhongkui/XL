@@ -10,8 +10,8 @@ using XL.Framework.Contract;
 
 namespace Exam.Web.Api
 {
-    [Authorize]
-    [AllowAnonymous]
+    //[AllowAnonymous]
+    //[RequestAuthorize]
     [WebApiExceptionFilter]
     public class UserInfoController : ApiController
     {
