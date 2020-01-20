@@ -33,5 +33,6 @@ namespace XL.Framework.Web
                 return user;
             }
         }
+
     }
 }

@@ -11,6 +11,8 @@ using Autofac.Integration.Mvc;
 using XL.Framework.BLL;
 using XL.Framework.DAL;
 using XL.Framework.Utility;
+using Autofac.Integration.WebApi;
+using System.Web.Http;
 
 namespace XL.Framework.Web
 {
@@ -25,7 +27,12 @@ namespace XL.Framework.Web
         public static void Initialise()
         {
             var builder = RegisterService();
-            DependencyResolver.SetResolver(new AutofacDependencyResolver(builder.Build()));
+            //builder.RegisterApiControllers(Assembly.GetExecutingAssembly()).PropertiesAutowired();
+            HttpConfiguration config = GlobalConfiguration.Configuration;
+            var container = builder.Build();
+            //DependencyResolver.SetResolver(new AutofacWebApiDependencyResolver(container));
+            config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         }
 
         /// <summary>
@@ -40,6 +47,7 @@ namespace XL.Framework.Web
             var assemblys = BuildManager.GetReferencedAssemblies().Cast<Assembly>()
                 .Where(m => m.FullName.Contains("Exam")).ToList();
             builder.RegisterControllers(assemblys.ToArray());
+            builder.RegisterApiControllers(assemblys.ToArray());
             //自动注入
             builder.RegisterAssemblyTypes(assemblys.ToArray())
                    .Where(t => baseType.IsAssignableFrom(t) && t != baseType)

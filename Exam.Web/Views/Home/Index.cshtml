@@ -4,4 +4,12 @@
 }
 
 <h2>Index</h2>
-
+<a href="/home/about">about</a>
+<script>
+    $(function () {
+        $.post("/api/userinfo/login", {
+        }, function (res) {
+            console.log(res)
+        });
+    });
+</script>

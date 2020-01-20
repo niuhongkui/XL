@@ -34,7 +34,7 @@ namespace XL.Framework.Web
             //LogHelper.WriteLog(context.Exception.Message, LogHelper.LogType.Error);
 
             //系统异常码
-            var oResponse = new HttpResponseMessage(HttpStatusCode.InternalServerError)
+            var oResponse = new HttpResponseMessage(HttpStatusCode.OK)
             {
                 Content = new StringContent(errMsg)
             };

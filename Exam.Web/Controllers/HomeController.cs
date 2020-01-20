@@ -8,19 +8,16 @@ using XL.Framework.Web;
 
 namespace Exam.Web.Controllers
 {
-    public class HomeController : BaseController
+    public class HomeController : Controller
     {
-        private IUserInfoService _userInfoService;
-
-        public HomeController(IUserInfoService userInfoService)
-        {
-            _userInfoService = userInfoService;
-        }
-
         // GET: Home
         public ActionResult Index()
         {
-            var list = _userInfoService.List();
+            return View();
+        }
+
+        public ActionResult About()
+        {
             return View();
         }
     }
