@@ -9,6 +9,9 @@ using XL.Framework.Contract;
 
 namespace XL.Framework.Web
 {
+
+    [RequestAuthorize]
+    [WebApiExceptionFilter]
     public class BaseApiController : ApiController
     {
         /// <summary>

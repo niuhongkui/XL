@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=6.9.12.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.6.9.12\lib\net45\MySql.Data.dll</HintPath>
       <Private>True</Private>
@@ -70,6 +73,7 @@
     <Compile Include="IDependency.cs" />
     <Compile Include="ImageUtil.cs" />
     <Compile Include="JsUtil.cs" />
+    <Compile Include="LogHelper.cs" />
     <Compile Include="MailHelper.cs" />
     <Compile Include="NetHelper.cs" />
     <Compile Include="ObjectHelper.cs" />

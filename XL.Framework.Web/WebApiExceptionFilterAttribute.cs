@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Web.Http.Filters;
 using Newtonsoft.Json;
 using XL.Framework.Contract;
+using XL.Framework.Utility;
 
 namespace XL.Framework.Web
 {
@@ -31,7 +32,7 @@ namespace XL.Framework.Web
             var errMsg = JsonConvert.SerializeObject(err);
 
             //记录异常
-            //LogHelper.WriteLog(context.Exception.Message, LogHelper.LogType.Error);
+            LogHelper.WriteLog(context.Exception.Message, LogHelper.LogType.Error);
 
             //系统异常码
             var oResponse = new HttpResponseMessage(HttpStatusCode.OK)
