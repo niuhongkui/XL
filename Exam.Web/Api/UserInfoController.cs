@@ -7,6 +7,8 @@ using System.Web.Http;
 using Exam.BLL.Service.Basic;
 using XL.Framework.Web;
 using XL.Framework.Contract;
+using Exam.Models.Basic;
+using XL.Framework.Utility;
 
 namespace Exam.Web.Api
 {
@@ -19,9 +21,10 @@ namespace Exam.Web.Api
             _userInfoService = userInfoService;
         }
 
-        public ApiMessage<bool> Login()
+        public ApiMessage<bool> Login(UserInfo user)
         {
-           var list= _userInfoService.List();
+            var i = Convert.ToInt32("3f");
+            LogHelper.WriteLog("debug");
             return null;
         }
     }

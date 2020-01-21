@@ -23,14 +23,14 @@ namespace XL.Framework.Utility
                 {
                     return _iLog;
                 }
-                _iLog = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+                _iLog = LogManager.GetLogger("RollingLogFileAppender");
 
                 return _iLog;
             }
         }
 
 
-        public static void WriteLog(string msg, LogType type)
+        public static void WriteLog(string msg, LogType type= LogType.Debug)
         {
             switch (type)
             {

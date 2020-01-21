@@ -31,8 +31,11 @@ namespace XL.Framework.Web
             };
             var errMsg = JsonConvert.SerializeObject(err);
 
-            //记录异常
-            LogHelper.WriteLog(context.Exception.Message, LogHelper.LogType.Error);
+            //记录异常 
+            LogHelper.WriteLog(JsonConvert.SerializeObject(new {
+                Message= context.Exception.Message,
+                StackTrace=context.Exception.StackTrace
+            }), LogHelper.LogType.Error);
 
             //系统异常码
             var oResponse = new HttpResponseMessage(HttpStatusCode.OK)
