@@ -1,14 +1,145 @@
-﻿
-@{
+﻿@{
+}
+<style>
+    .header {
+        height: 55px;
+        position: relative;
+        z-index: 0;
+        overflow: hidden;
+        border-bottom: 1px #95b8e7 solid;
+        background: url(../images/bg_header.jpg) bottom repeat-x;
+    }
+
+    .header-left {
+        position: absolute;
+        z-index: 1;
+        left: 15px;
+        top: 0;
+    }
+
+        .header-left h1 {
+            font: 20px/20px Verdana;
+            color: #fff;
+        }
+
+    .header-right {
+        position: absolute;
+        z-index: 1;
+        right: 5px;
+        top: 0;
+        color: #fff;
+        text-align: right;
+    }
+
+        .header-right p {
+            line-height: 0.7em;
+        }
+
+        .header-right a {
+            margin: 0 5px;
+        }
+
+.side-tree .tree-node {
+    padding: 3px 0px;
+    height: 22px;
 }
 
-<h2>Index</h2>
-<a href="/login/index">about</a>
+.side-tree a {
+    display: block;
+}
+
+.side-tree .tree-node-selected {
+    padding: 2px 0;
+    border: 1px #fade23 solid;
+}
+
+    .side-tree .tree-node-selected a {
+        color: #fff !important;
+    }
+</style>
+<div class="easyui-layout" style="width: 100%;" data-options="fit:true">
+    <div data-options="region:'north',split:false" style="height: 50px;">
+        <div class="header-left">
+            <h3>ERP管理</h3>
+        </div>
+        <div class="header-right" style="margin-top: 10px">
+            <p><strong class="easyui-tooltip" title="333">4444</strong>，欢迎您！</p>
+            <p><a href="@Url.Action("Index","Home")">网站首页</a>|<a href="@Url.Action("LoginOut", "Login")">安全退出</a></p>
+        </div>
+    </div>
+    <div data-options="region:'west',title:'菜单',split:true" style="        width: 200px;">
+        <div id="aa" class="easyui-accordion" data-options="fit:true">
+            <div title="数据分析" data-options="selected:true,iconCls:'icon-table'">
+                <ul class="easyui-tree side-tree">
+                    <li iconCls="icon-application-view-gallery"><a href="javascript:void(0)" data-icon="icon-application-view-gallery" data-link="@Url.Action("About","Home")" iframe="1">页面展示</a></li>
+                    <li iconCls="icon-application-view-icons"><a href="javascript:void(0)" data-icon="icon-application-view-icons" data-link="@Url.Action("About","Home")" iframe="1">页面测试</a></li>
+                </ul>
+            </div>
+            <div title="业务数据" data-options="iconCls:'icon-text-columns'">
+                content2
+            </div>
+            <div title="生产数据" data-options="iconCls:'icon-text-list-bullets'">
+                content3
+            </div>
+            <div title="系统设置" data-options="iconCls:'icon-image'">
+                content4
+            </div>
+        </div>
+    </div>
+    <div data-options="region:'center'">
+        <div id="tabs" class="easyui-tabs" style="        width: 100%;" data-options="iconCls:'icon-house',closable:true">
+            <div title="首页" data-options="iconCls:'icon-house'">
+                
+            </div>
+        </div>
+    </div>
+    <div data-options="region:'south',split:false" style="        text-align: center;
+        vertical-align: middle">@ViewBag.Title</div>
+</div>
 <script>
     $(function () {
-        $.post("/api/userinfo/login", {
-        }, function (res) {
-            console.log(res)
+        $('.side-tree a').bind("click", function () {
+            var title = $(this).text();
+            var url = $(this).attr('data-link');
+            var iconCls = $(this).attr('data-icon');
+            var iframe = $(this).attr('iframe') == 1 ? true : false;
+            addTab(title, url, iconCls, iframe);
         });
-    });
+    })
+    /**
+    * Name 添加菜单选项
+    * Param title 名称
+    * Param href 链接
+    * Param iconCls 图标样式
+    * Param iframe 链接跳转方式（true为iframe，false为href）
+    */
+    function addTab(title, href, iconCls, iframe) {
+        var tabPanel = $('#tabs');
+        if (!tabPanel.tabs('exists', title)) {
+            var content = '<iframe scrolling="auto" frameborder="0"  src="' + href + '" style="width:100%;height:100%;"></iframe>';
+            if (iframe) {
+                tabPanel.tabs('add', {
+                    title: title,
+                    content: content,
+                    iconCls: iconCls,
+                    fit: true,
+                    cls: 'pd3',
+                    closable: true
+                });
+            }
+            else {
+                tabPanel.tabs('add', {
+                    title: title,
+                    href: href,
+                    iconCls: iconCls,
+                    fit: true,
+                    cls: 'pd3',
+                    closable: true
+                });
+            }
+        }
+        else {
+            tabPanel.tabs('select', title);
+        }
+    }
 </script>
