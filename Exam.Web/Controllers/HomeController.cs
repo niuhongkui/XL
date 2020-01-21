@@ -8,7 +8,7 @@ using XL.Framework.Web;
 
 namespace Exam.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         // GET: Home
         public ActionResult Index()

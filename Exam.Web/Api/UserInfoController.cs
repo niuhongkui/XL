@@ -23,8 +23,6 @@ namespace Exam.Web.Api
 
         public ApiMessage<bool> Login(UserInfo user)
         {
-            var i = Convert.ToInt32("3f");
-            LogHelper.WriteLog("debug");
             return null;
         }
     }
