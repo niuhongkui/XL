@@ -12,6 +12,7 @@ namespace XL.Framework.Web
 
     [RequestAuthorize]
     [WebApiExceptionFilter]
+    [AllowCrossSiteJson]
     public class BaseApiController : ApiController
     {
         /// <summary>

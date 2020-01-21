@@ -101,6 +101,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AllowCrossSiteJsonAttribute.cs" />
     <Compile Include="AuthorizeFilterAttribute.cs" />
     <Compile Include="AuthorizeIgnoreAttribute.cs" />
     <Compile Include="AutofacConfig.cs" />
